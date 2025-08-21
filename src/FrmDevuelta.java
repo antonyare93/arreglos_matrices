@@ -1,3 +1,6 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -8,6 +11,9 @@ import javax.swing.JTextField;
 public class FrmDevuelta extends JFrame {
 
     private int[] denominaciones = new int[] { 100000, 50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50 };
+    private int[] existencia = new int[denominaciones.length];
+    private JComboBox<String> cmbDenominacion;
+    private JTextField txtExistencia;
 
     public FrmDevuelta() {
         setTitle("Calculo de devueltas");
@@ -19,7 +25,7 @@ public class FrmDevuelta extends JFrame {
         lblDenominacion.setBounds(100, 10, 100, 25);
         getContentPane().add(lblDenominacion);
 
-        JComboBox cmbDenominacion = new JComboBox();
+        cmbDenominacion = new JComboBox();
         cmbDenominacion.setBounds(210, 10, 150, 25);
         getContentPane().add(cmbDenominacion);
 
@@ -33,10 +39,29 @@ public class FrmDevuelta extends JFrame {
         btnActualizarExistencia.setBounds(10, 40, 180, 25);
         getContentPane().add(btnActualizarExistencia);
 
-        JTextField txtExistencia = new JTextField();
+        txtExistencia = new JTextField();
         txtExistencia.setBounds(210, 40, 150, 25);
         getContentPane().add(txtExistencia);
 
+        cmbDenominacion.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                consultarExistencia();
+            }
+        });
+
+        btnActualizarExistencia.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actualizarExistencia();
+            }
+        });
+
     }
 
+    private void consultarExistencia() {
+        // Lógica para consultar la existencia de la denominación seleccionada
+        int existenciaActual = existencia[cmbDenominacion.getSelectedIndex()];
+        txtExistencia.setText(String.valueOf(existenciaActual));
+    }
 }
