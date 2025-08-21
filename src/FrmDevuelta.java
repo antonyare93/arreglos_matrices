@@ -1,10 +1,13 @@
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 public class FrmDevuelta extends JFrame {
 
-    private int[] denominaciones = new int[]{100000, 50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50}
+    private int[] denominaciones = new int[] { 100000, 50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50 };
 
     public FrmDevuelta() {
         setTitle("Calculo de devueltas");
@@ -24,6 +27,15 @@ public class FrmDevuelta extends JFrame {
         for (int i = 0; i < denominaciones.length; i++) {
             strDenominaciones[i] = String.valueOf(denominaciones[i]);
         }
+        cmbDenominacion.setModel(new DefaultComboBoxModel(strDenominaciones));
+
+        JButton btnActualizarExistencia = new JButton("Actualizar Existencia");
+        btnActualizarExistencia.setBounds(10, 40, 180, 25);
+        getContentPane().add(btnActualizarExistencia);
+
+        JTextField txtExistencia = new JTextField();
+        txtExistencia.setBounds(210, 40, 150, 25);
+        getContentPane().add(txtExistencia);
 
     }
 
