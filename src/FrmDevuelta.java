@@ -14,6 +14,7 @@ public class FrmDevuelta extends JFrame {
     private int[] existencia = new int[denominaciones.length];
     private JComboBox<String> cmbDenominacion;
     private JTextField txtExistencia;
+    private JTextField txtDevuelta;
 
     public FrmDevuelta() {
         setTitle("Calculo de devueltas");
@@ -56,6 +57,14 @@ public class FrmDevuelta extends JFrame {
                 actualizarExistencia();
             }
         });
+
+        JLabel lblDevuelta = new JLabel("Denominacion:");
+        lblDevuelta.setBounds(100, 70, 100, 25);
+        getContentPane().add(lblDevuelta);
+
+        txtDevuelta = new JTextField();
+        txtDevuelta.setBounds(210, 40, 150, 25);
+        getContentPane().add(txtDevuelta);
 
     }
 
