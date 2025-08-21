@@ -64,4 +64,9 @@ public class FrmDevuelta extends JFrame {
         int existenciaActual = existencia[cmbDenominacion.getSelectedIndex()];
         txtExistencia.setText(String.valueOf(existenciaActual));
     }
+
+    private void actualizarExistencia() {
+        int existenciaActual = Integer.parseInt(txtExistencia.getText());
+        existencia[cmbDenominacion.getSelectedIndex()] = existenciaActual;
+    }
 }
