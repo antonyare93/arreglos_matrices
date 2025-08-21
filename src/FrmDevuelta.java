@@ -63,8 +63,12 @@ public class FrmDevuelta extends JFrame {
         getContentPane().add(lblDevuelta);
 
         txtDevuelta = new JTextField();
-        txtDevuelta.setBounds(210, 40, 150, 25);
+        txtDevuelta.setBounds(210, 70, 150, 25);
         getContentPane().add(txtDevuelta);
+
+        JButton btnDevuelta = new JButton("Calcular");
+        btnDevuelta.setBounds(370, 70, 180, 25);
+        getContentPane().add(btnDevuelta);
 
     }
 
