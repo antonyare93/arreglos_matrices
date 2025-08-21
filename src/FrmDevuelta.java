@@ -6,15 +6,18 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 public class FrmDevuelta extends JFrame {
 
     private int[] denominaciones = new int[] { 100000, 50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50 };
     private int[] existencia = new int[denominaciones.length];
+    private String[] encabezados = new String[] { "Cantidad", "Presentación", "Denominación" };
     private JComboBox<String> cmbDenominacion;
-    private JTextField txtExistencia;
-    private JTextField txtDevuelta;
+    private JTextField txtExistencia, txtDevuelta;
 
     public FrmDevuelta() {
         setTitle("Calculo de devueltas");
@@ -27,7 +30,7 @@ public class FrmDevuelta extends JFrame {
         getContentPane().add(lblDenominacion);
 
         cmbDenominacion = new JComboBox();
-        cmbDenominacion.setBounds(210, 10, 150, 25);
+        cmbDenominacion.setBounds(200, 10, 150, 25);
         getContentPane().add(cmbDenominacion);
 
         String[] strDenominaciones = new String[denominaciones.length];
@@ -41,7 +44,7 @@ public class FrmDevuelta extends JFrame {
         getContentPane().add(btnActualizarExistencia);
 
         txtExistencia = new JTextField();
-        txtExistencia.setBounds(210, 40, 150, 25);
+        txtExistencia.setBounds(200, 40, 150, 25);
         getContentPane().add(txtExistencia);
 
         cmbDenominacion.addActionListener(new ActionListener() {
@@ -63,12 +66,20 @@ public class FrmDevuelta extends JFrame {
         getContentPane().add(lblDevuelta);
 
         txtDevuelta = new JTextField();
-        txtDevuelta.setBounds(210, 70, 150, 25);
+        txtDevuelta.setBounds(200, 70, 150, 25);
         getContentPane().add(txtDevuelta);
 
         JButton btnDevuelta = new JButton("Calcular");
-        btnDevuelta.setBounds(370, 70, 80, 25);
+        btnDevuelta.setBounds(360, 70, 100, 25);
         getContentPane().add(btnDevuelta);
+
+        JTable tblDevuelta = new JTable();
+        JScrollPane spDevuelta = new JScrollPane(tblDevuelta);
+        spDevuelta.setBounds(10, 100, 450, 200);
+        getContentPane().add(spDevuelta);
+
+        DefaultTableModel dtm = new DefaultTableModel(null, encabezados);
+        tblDevuelta.setModel(dtm);
 
     }
 
