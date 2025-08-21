@@ -4,6 +4,8 @@ import javax.swing.JLabel;
 
 public class FrmDevuelta extends JFrame {
 
+    private int[] denominaciones = new int[]{100000, 50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50}
+
     public FrmDevuelta() {
         setTitle("Calculo de devueltas");
         setSize(500, 400);
@@ -17,6 +19,11 @@ public class FrmDevuelta extends JFrame {
         JComboBox cmbDenominacion = new JComboBox();
         cmbDenominacion.setBounds(210, 10, 150, 25);
         getContentPane().add(cmbDenominacion);
+
+        String[] strDenominaciones = new String[denominaciones.length];
+        for (int i = 0; i < denominaciones.length; i++) {
+            strDenominaciones[i] = String.valueOf(denominaciones[i]);
+        }
 
     }
 
